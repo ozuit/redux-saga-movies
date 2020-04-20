@@ -3,6 +3,8 @@ import {
   FETCH_MOVIES,
   FETCH_SUCCEEDED,
   FETCH_FAILED,
+  UPDATE_MOVIE,
+  UPDATE_SUCCEEDED,
 } from './actionTypes';
 
 export const fetchMoviesAction = () => {
@@ -29,5 +31,19 @@ export const fetchFailedAction = (error) => {
   return {
     type: FETCH_FAILED,
     error,
+  };
+};
+
+export const updateMovieAction = (movie) => {
+  return {
+    type: UPDATE_MOVIE,
+    movie,
+  };
+};
+
+export const updateSuccessAction = (movie) => {
+  return {
+    type: UPDATE_SUCCEEDED,
+    movie,
   };
 };
