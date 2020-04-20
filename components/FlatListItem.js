@@ -25,7 +25,9 @@ export default class FlatListItem extends Component {
       {
         text: 'Delete',
         type: 'delete',
-        onPress: () => {},
+        onPress: () => {
+          this.props.movieComponent.props.onDeleteMovie(this.props.id);
+        },
       },
     ];
 

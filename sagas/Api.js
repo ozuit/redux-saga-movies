@@ -2,6 +2,7 @@ import {call} from 'redux-saga/effects';
 const urlGetMovies = 'https://5e99d3c7bc561b0016af394c.mockapi.io/movies';
 const urlPostMovies = 'https://5e99d3c7bc561b0016af394c.mockapi.io/movies';
 const urlPutMovies = 'https://5e99d3c7bc561b0016af394c.mockapi.io/movies';
+const urlDeleteMovies = 'https://5e99d3c7bc561b0016af394c.mockapi.io/movies';
 
 function* getMovieFromApi() {
   const response = yield call(fetch, urlGetMovies);
@@ -41,8 +42,21 @@ function* putMovieFromApi(movie) {
   return yield response.status === 200;
 }
 
+function* deleteMovieFromApi(movie_id) {
+  const response = yield fetch(`${urlDeleteMovies}/${movie_id}`, {
+    method: 'DELETE',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+  });
+  console.log('Response = ' + JSON.stringify(response));
+  return yield response.status === 200;
+}
+
 export default {
   getMovieFromApi,
   postMovieFromApi,
   putMovieFromApi,
+  deleteMovieFromApi,
 };

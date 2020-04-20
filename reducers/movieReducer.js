@@ -5,6 +5,7 @@ import {
   FETCH_FAILED,
   UPDATE_MOVIE,
   UPDATE_SUCCEEDED,
+  DELETE_SUCCEEDED,
 } from '../actions/actionTypes';
 
 const movieReducer = (movies = [], action) => {
@@ -19,6 +20,8 @@ const movieReducer = (movies = [], action) => {
       return [...movies].map((item) => {
         return item.id == action.movie.id ? action.movie : item;
       });
+    case DELETE_SUCCEEDED:
+      return [...movies].filter((item) => item.id != action.movie_id);
     default:
       return movies;
   }

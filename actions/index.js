@@ -5,6 +5,8 @@ import {
   FETCH_FAILED,
   UPDATE_MOVIE,
   UPDATE_SUCCEEDED,
+  DELETE_MOVIE,
+  DELETE_SUCCEEDED,
 } from './actionTypes';
 
 export const fetchMoviesAction = () => {
@@ -45,5 +47,19 @@ export const updateSuccessAction = (movie) => {
   return {
     type: UPDATE_SUCCEEDED,
     movie,
+  };
+};
+
+export const deleteMovieAction = (movie_id) => {
+  return {
+    type: DELETE_MOVIE,
+    movie_id,
+  };
+};
+
+export const deleteSuccessAction = (movie_id) => {
+  return {
+    type: DELETE_SUCCEEDED,
+    movie_id,
   };
 };
